@@ -1,24 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import "./App.css";
+import {
+  PdfViewerComponent,
+  Toolbar,
+  Magnification,
+  Navigation,
+  LinkAnnotation,
+  BookmarkView,
+  ThumbnailView,
+  Print,
+  TextSelection,
+  TextSearch,
+  Annotation,
+  Inject,
+  FormFields,
+  FormDesigner,
+} from "@syncfusion/ej2-react-pdfviewer";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <div className="control-section">
+        <PdfViewerComponent
+          id="container"
+          // documentPath="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+          serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/pdfviewer"
+          style={{ height: "640px" }}
         >
-          Learn React
-        </a>
-      </header>
+          <Inject
+            services={[
+              Toolbar,
+              Magnification,
+              Navigation,
+              Annotation,
+              LinkAnnotation,
+              BookmarkView,
+              ThumbnailView,
+              Print,
+              TextSelection,
+              TextSearch,
+              FormFields,
+              FormDesigner,
+            ]}
+          />
+        </PdfViewerComponent>
+      </div>
     </div>
   );
 }
