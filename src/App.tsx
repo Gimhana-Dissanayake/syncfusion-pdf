@@ -16,13 +16,24 @@ import {
   FormFields,
   FormDesigner,
 } from "@syncfusion/ej2-react-pdfviewer";
+
 function App() {
+  function load_1() {
+    let vv = document?.getElementById("container") as any;
+
+    var viewer = vv?.ej2_instances[0];
+
+    console.log("VIEWER ", viewer);
+
+    viewer.load("./dumm.pdf", null);
+  }
+
   return (
     <div>
       <div className="control-section">
         <PdfViewerComponent
           id="container"
-          // documentPath="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+          // documentPath="dumm.pdf"
           serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/pdfviewer"
           style={{ height: "640px" }}
         >
@@ -43,6 +54,16 @@ function App() {
             ]}
           />
         </PdfViewerComponent>
+      </div>
+
+      <div>
+        <button
+          onClick={() => {
+            load_1();
+          }}
+        >
+          LoadDocumentFromBase64
+        </button>
       </div>
     </div>
   );
